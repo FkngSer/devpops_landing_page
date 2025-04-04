@@ -142,6 +142,54 @@
       #close-menu-btn{
         color: #b0f115;
       }
+
+      .name-graphic-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        overflow: hidden; /* Added to hide the overflowed part of the animation */
+      }
+
+      .name-graphic-devpops {
+        font-family: 'Press Start 2P', monospace;
+        color: #b0f115;
+        font-size: 2rem;
+        text-shadow: 0 0 10px rgba(176, 241, 21, 0.8);
+        transition: all 0.5s ease; /* Added smooth transition */
+      }
+
+      .name-graphic-sergiu {
+        font-family: 'Inter', sans-serif;
+        color: #ffffff;
+        font-size: 3rem;
+        font-weight: 700;
+        opacity: 0; /* Initially hidden */
+        transform: translateY(20px); /* Start slightly below */
+        transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+      }
+
+      .name-graphic-container:hover .name-graphic-devpops {
+        transform: translateY(-30px); /* Move DevpOps up on hover */
+        opacity: 0;
+      }
+
+      .name-graphic-container:hover .name-graphic-sergiu {
+        opacity: 1; /* Fade in Sergiu Popa on hover */
+        transform: translateY(0); /* Move Sergiu Popa to its original position */
+      }
+
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 10px rgba(176, 241, 21, 0.8);
+        }
+        to {
+          text-shadow: 0 0 20px rgba(176, 241, 21, 0.5);
+        }
+      }
     </style>
   </head>
   <body class="bg-gray-900 text-white">
@@ -209,7 +257,10 @@
             </p>
           </div>
           <div class="rounded-lg overflow-hidden shadow-lg">
-            <img src="https://placehold.co/600x400/000/b0f115?text=Sergiu+Popa&font=Montserrat" alt="Sergiu Popa" class="w-full h-auto" style="filter: hue-rotate(90deg);" />
+            <div class="name-graphic-container">
+              <h2 class="name-graphic-devpops">DevpOps</h2>
+              <h1 class="name-graphic-sergiu">Sergiu Popa</h1>
+            </div>
           </div>
         </div>
       </section>
